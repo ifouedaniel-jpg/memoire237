@@ -1,0 +1,8 @@
+{
+  "name": "MÉMOIRE 237",
+  "tagline": "L’histoire en perspective, les sources en partage.",
+  "description": "Un musée numérique pour explorer l’histoire du Cameroun, ses trajectoires et ses mémoires, à partir de sources explicites.",
+  "language": "fr",
+  "futureLanguages": ["en"],
+  "baseUrl": "http://127.0.0.1:8237"
+}

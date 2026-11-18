@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.qa/
+.run/
+.publication/
+dist/
+.build-*/
+backups/
+restored/
+evidence/
+research/
+*.log
