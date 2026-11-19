@@ -1,13 +1,13 @@
-# Domaine saneahair.com
+# Domaine saneahair.com — HTTPS vérifié le 19 novembre 2026 UTC
 
-Publication autorisée sur le domaine de l'utilisateur, via GitHub Pages et Cloudflare.
+Publication autorisée via GitHub Pages et Cloudflare ; édition documentaire partielle inchangée.
 
-- http://saneahair.com/ : HTTP200 ; http://www.saneahair.com/ redirige vers l'apex.
-- Au contrôle du19 novembre2026, HTTPS n'est pas encore disponible : certificat présenté ne couvrant pas les noms, curl code60. Ne pas ignorer l'alerte TLS. HTTPS non forcé avant certificat valide.
-- Pages legacy, gh-pages:/, CNAME saneahair.com ; commit statique ed50bb73dfe08b4440b45015c08af8aa0f561797,84 fichiers.
-- Apex et www : CNAME ifouedaniel-jpg.github.io sans proxy, apex aplati Cloudflare. Aucun autre enregistrement ni réglage de sécurité modifié.
-- Build racine préparé utilisé sans reconstruction. Canonical https://saneahair.com, aucun ancien préfixe /memoire237/.
-- QA publique sur HTTP :75 routes,225 reflows320/390/1440,4 recherches,60 filtres,84 fichiers identiques SHA256, zéro erreur JS/HTTP.29 tests unitaires et compilation réussis. Cela ne constitue pas une QA HTTPS réussie.
-- Corpus inchangé37 événements,7 personnes dont un collectif,10 lieux,9 thèmes,1 parcours ; limites éditoriales maintenues.
+- **https://saneahair.com/** : TLS valide, HTTP200. www HTTPS redirige vers l’apex ; HTTP apex/www redirige vers HTTPS, destination200.
+- État natif GitHub Pages relu : certificat `approved` pour apex et www, expiration annoncée `2027-02-17`, `https_enforced:true`, build `built`, source `gh-pages:/`, mode `legacy`.
+- Après un blocage de provisioning, le domaine personnalisé a été retiré puis réajouté par l’API officielle GitHub. GitHub a créé le commit statique `a2f954509a86df8d910abde29f8576a58eb971d8`, normalisant uniquement CNAME en `saneahair.com` sans saut de ligne final.
+- Arbre exact84 fichiers vérifié par hashes :83 blobs inchangés. Seul le chemin racine CNAME accepte exactement `saneahair.com` avec zéro ou un LF final ; aucun autre hôte, espace, CRLF ou ligne supplémentaire. Les SHA256 des83 autres fichiers restent stricts. Le site n’a pas été modifié pour satisfaire le test.
+- QA publique **sur HTTPS** :75 routes,225 reflows320/390/1440,475 citations réellement cliquées,60 filtres,4 recherches,84 fichiers contrôlés, zéro erreur JS/HTTP. **32 tests unitaires réussis**, compilation réussie. Captures accueil mobile/desktop inspectées sans chevauchement manifeste. L’échec CNAME initial et les tests rouges sont conservés séparément, privés.
+- Corpus accepté inchangé :37 événements,7 personnes dont un collectif,10 lieux,9 thèmes,1 parcours ;75 pages,25 sources. Aucun rebuild ni changement éditorial.
+- DNS existant : apex/www vers GitHub sans proxy. Aucun changement DNS, certificat, proxy, service système ou Hermes pendant cette clôture QA.
 
-Une fois TLS prêt, vérifier200 avec validation de certificat sur apex et www, activer enforce_https et relire Pages avant nouvelle QA HTTPS. Sauvegarde DNS complète et procédure de rollback conservées séparément, privées. Aucune preuve historique ou donnée interne n'est distribuée.
+Les preuves natives API, rapports QA, sauvegardes et procédure de rollback sont privés et ne sont pas distribués. Reconstruire le corpus exige ses entrées et preuves originales ; ne pas contourner leur validation. Audit manuel accessibilité, disponibilité distante des sources et validation historienne restent ouverts ; aucun nouvel audit axe n’est revendiqué.

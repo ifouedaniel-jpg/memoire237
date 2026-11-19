@@ -38,6 +38,12 @@ with sync_playwright() as pw:
             page.set_viewport_size(dict(width=width,height=1000))
             assert page.evaluate('document.documentElement.scrollWidth<=innerWidth'),(route,width)
             report['reflow']+=1
+        for citation in page.locator('a.citation').all():
+            target=citation.get_attribute('href')[1:]
+            citation.click()
+            assert page.url.split('#',1)[1]==target
+            assert page.locator(f'[id="{target}"] .citation-number').inner_text()==citation.inner_text()
+            report['citations']=report.get('citations',0)+1
         report['routes'].append(route)
     report['search']=exercise_search(page,BASE,json.loads((OUT/'search-index.json').read_text()))
     report['filters']=exercise_filters(page,BASE,data,builder)
@@ -47,14 +53,21 @@ with sync_playwright() as pw:
         page.screenshot(path=str(PROOF/('domain-'+label+'.png')),full_page=True)
     browser.close()
 assert len(report['routes'])==75 and report['reflow']==225
+assert report['citations']==475 and len(report['search'])==4 and len(report['filters'])==60
 assert not report['javascriptErrors'] and not report['failedResponses'],report
 manifest=json.loads((ROOT/'.publication/domain/manifest.json').read_text())
 def verify(item):
     with urlopen(BASE+'/'+item['path'],timeout=30) as response:
         raw=response.read()
         assert response.status==200
-        assert hashlib.sha256(raw).hexdigest()==item['sha256'],item['path']
-    return dict(path=item['path'],status=200,sha256=item['sha256'])
+        actual_sha256=hashlib.sha256(raw).hexdigest()
+        if item['path']=='CNAME':
+            # GitHub Pages rewrites this file after the custom-domain API call.
+            # Permit only the exact apex, with zero or one final LF; no strip().
+            assert raw in (b'saneahair.com',b'saneahair.com\n'),item['path']
+        else:
+            assert actual_sha256==item['sha256'],item['path']
+    return dict(path=item['path'],status=200,sha256=actual_sha256,expectedSha256=item['sha256'])
 with concurrent.futures.ThreadPoolExecutor(max_workers=8) as pool:
     report['files']=list(pool.map(verify,manifest))
 assert len(report['files'])==84

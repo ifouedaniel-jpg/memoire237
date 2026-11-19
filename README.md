@@ -1,6 +1,6 @@
 # MÉMOIRE 237
 
-**Consulter le site : http://saneahair.com/** — domaine personnalisé configuré ; www redirige vers l’apex. HTTPS reste en attente d’un certificat GitHub couvrant les noms au dernier contrôle (curl60) ; ne pas ignorer l’alerte TLS. Voir [DOMAIN_DEPLOYMENT.md](DOMAIN_DEPLOYMENT.md).
+**Consulter le site : https://saneahair.com/** — TLS valide pour apex/www, certificat GitHub approuvé (expiration annoncée2027-02-17), HTTPS forcé. HTTP redirige vers HTTPS et www vers l’apex. QA HTTPS réelle :75 routes,225 reflows,475 citations cliquées,60 filtres,4 recherches,84 fichiers vérifiés ;32 tests unitaires réussis. Voir [DOMAIN_DEPLOYMENT.md](DOMAIN_DEPLOYMENT.md).
 
 Musée numérique français consacré à l’histoire du Cameroun. Édition documentaire
 partielle : 37 événements, six portraits individuels partiels et un collectif,
