@@ -1,6 +1,6 @@
 # MÉMOIRE 237
 
-**Consulter le site : https://ifouedaniel-jpg.github.io/memoire237/**
+**Consulter le site : http://saneahair.com/** — domaine personnalisé configuré ; www redirige vers l’apex. HTTPS reste en attente d’un certificat GitHub couvrant les noms au dernier contrôle (curl60) ; ne pas ignorer l’alerte TLS. Voir [DOMAIN_DEPLOYMENT.md](DOMAIN_DEPLOYMENT.md).
 
 Musée numérique français consacré à l’histoire du Cameroun. Édition documentaire
 partielle : 37 événements, six portraits individuels partiels et un collectif,
@@ -12,7 +12,7 @@ agents sans validation historienne. Ces limites sont également visibles sur le 
 
 - `main` : code Python standard, assets HTML/CSS/JS et tests ; documentation technique.
 - `gh-pages` : instantané statique validé, servi par GitHub Pages à la racine de cette branche.
-- Aucun workflow Actions personnalisé, domaine personnalisé ou service payant configuré.
+- Domaine personnalisé saneahair.com, DNS Cloudflare vers GitHub Pages sans proxy ; aucun workflow Actions personnalisé ou service payant configuré.
 
 Les corpus JSON internes, notices non acceptées, téléchargements documentaires,
 PDF et textes de preuves, rapports internes, mémoires personnelles, sauvegardes,
